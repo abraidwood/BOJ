@@ -1,0 +1,20 @@
+
+Summary
+-------
+A method for extracting and decoding binary data from pseudo-JSON
+
+This is designed to be used in eg Bayeux messages where it may be
+useful to compress the data (eg with lzo) but not the channel or id.
+
+Two formats are currently available:
+
+1. BOJ
+	["BOJ",<length of binary data>,<arbirtary binary data>]
+
+	This is for single items
+
+2. BOJT (BOJ with table of contents)
+	["BOJT",<length of table>,<table>]
+
+	The table is of the form: [[offset1,length1],...]
+	The table may be compressed.
